@@ -212,7 +212,7 @@
     "name": "docker-registry",
     "description": "A pull through cache for docker images",
     "logo": "https://raw.githubusercontent.com/ariaieboy/yacht-templates/main/images/docker.png",
-    "image": "registery:2",
+    "image": "registry:2",
     "note": "Read https://docs.docker.com/registry/recipes/mirror/ for more information",
     "categories": [
       "docker",
