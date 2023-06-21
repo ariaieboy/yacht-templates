@@ -222,7 +222,7 @@
     "platform": "linux",
     "restart_policy": "always",
     "ports": [
-      "5000:5000/tcp,udp"
+      "5000:5000/tcp"
     ],
     "network_mode": "bridge",
     "env": [
