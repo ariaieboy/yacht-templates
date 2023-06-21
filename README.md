@@ -8,3 +8,5 @@ Add `https://raw.githubusercontent.com/ariaieboy/yacht-templates/main/templates.
 * pihole
 * heimdal
 * jellyfin
+* ripe atlas software prob
+* watchtower
