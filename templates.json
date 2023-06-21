@@ -149,21 +149,37 @@
     ],
     "env": [
       {
-        "name": "PUID",
-        "label": "PUID",
-        "default": "!PUID"
-      },
-      {
-        "name": "PGID",
-        "label": "PGID",
-        "default": "!PGID"
-      },
-      {
         "name": "RXTXRPT",
         "label": "RXTXRPT",
         "default": "yes"
       }
     ],
+    "cap_drop": [
+      "ALL"
+    ],
+    "cap_add": [
+      "CHOWN",
+      "SETUID",
+      "SETGID",
+      "DAC_OVERRIDE",
+      "NET_RAW"
+    ],
+    "labels": [
+      {
+        "label": "traefik.enable",
+        "value": false
+      },
+      {
+        "label": "com.centurylinklabs.watchtower.enable",
+        "value": true
+      }
+    ],
+    "logging": {
+      "driver": "json-file",
+      "options": {
+        "max-size": "10m"
+      }
+    },
     "note": "When the installation is complete, Fetch the generated public key from `/var/atlas-probe/etc/probe_key.pub` and register your probe here `https://atlas.ripe.net/apply/swprobe/`"
   }
 ]
