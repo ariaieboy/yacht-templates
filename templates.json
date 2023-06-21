@@ -140,11 +140,11 @@
     "volumes": [
       {
         "container": "/var/atlas-probe/etc",
-        "bind": "!/var/atlas-probe/etc"
+        "bind": "/var/atlas-probe/etc"
       },
       {
         "container": "/var/atlas-probe/status",
-        "bind": "!/var/atlas-probe/status"
+        "bind": "/var/atlas-probe/status"
       }
     ],
     "env": [
