@@ -130,7 +130,7 @@
     "title": "Ripe Atlas Probe",
     "name": "ripe_atlas",
     "description": "The software packages that work as RIPE Atlas probes without the need for any dedicated RIPE Atlas hardware.",
-    "logo": "https://raw.githubusercontent.com/ariaieboy/yaccht-templates/main/images/ripe.png",
+    "logo": "https://raw.githubusercontent.com/ariaieboy/yacht-templates/main/images/ripe.png",
     "image": "jamesits/ripe-atlas:latest",
     "categories": [
       "Tools"
