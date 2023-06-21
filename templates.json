@@ -135,6 +135,7 @@
     "categories": [
       "Tools"
     ],
+    "ports": [],
     "platform": "linux",
     "restart_policy": "unless-stopped",
     "volumes": [
@@ -195,12 +196,48 @@
       "Tools",
       "Maintenance"
     ],
+    "ports": [],
     "platform": "linux",
     "restart_policy": "unless-stopped",
     "volumes": [
       {
         "container": "/var/run/docker.sock",
         "bind": "/var/run/docker.sock"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Docker Registry Pull Through Cache",
+    "name": "docker-registry",
+    "description": "A pull through cache for docker images",
+    "logo": "https://raw.githubusercontent.com/ariaieboy/yacht-templates/main/images/docker.png",
+    "image": "registery:2",
+    "note": "Read https://docs.docker.com/registry/recipes/mirror/ for more information",
+    "categories": [
+      "docker",
+      "cache",
+      "docker-registry"
+    ],
+    "platform": "linux",
+    "restart_policy": "always",
+    "ports": [
+      "5000:5000/tcp,udp"
+    ],
+    "network_mode": "bridge",
+    "env": [
+      {
+        "name": "REGISTRY_PROXY_REMOTEURL",
+        "label": "REGISTRY_PROXY_REMOTEURL",
+        "default": "https://registry-1.docker.io"
+      },
+      {
+        "name": "REGISTRY_PROXY_USERNAME",
+        "label": "REGISTRY_PROXY_USERNAME"
+      },
+      {
+        "name": "REGISTRY_PROXY_PASSWORD",
+        "label": "REGISTRY_PROXY_PASSWORD"
       }
     ]
   }

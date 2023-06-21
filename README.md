@@ -10,3 +10,4 @@ Add `https://raw.githubusercontent.com/ariaieboy/yacht-templates/main/templates.
 * jellyfin
 * ripe atlas software prob
 * watchtower
+* docker pull through cache registry
