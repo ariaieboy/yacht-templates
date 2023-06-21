@@ -35,6 +35,98 @@
   },
   {
     "type": 1,
+    "title": "Heimdall",
+    "name": "heimdall",
+    "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
+    "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/heimdall-icon.png",
+    "image": "linuxserver/heimdall:latest",
+    "categories": [
+      "Tools",
+      "Web",
+      "Other"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      {
+        "WebUI": "80/tcp",
+        "HTTPS WebUI": "443/tcp"
+      }
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "!config/Heimdall"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "default": "!PUID"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "default": "!PGID"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Jellyfin",
+    "name": "jellyfin",
+    "description": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps.",
+    "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/jellyfin.png",
+    "image": "linuxserver/jellyfin:latest",
+    "categories": [
+      "Video",
+      "Music",
+      "Photos"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      {
+        "WebUI": "8096:8096/tcp",
+        "HTTPS WebUI": "8920:8920/tcp",
+        "DNLA": "1900:1900/udp",
+        "Discovery": "7359:7359/udp"
+      }
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "!config/Jellyfin"
+      },
+      {
+        "container": "/data/tvshows",
+        "bind": "!tv"
+      },
+      {
+        "container": "/data/movies",
+        "bind": "!movies"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "default": "!PUID"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "default": "!PGID"
+      },
+      {
+        "name": "TZ",
+        "label": "TZ"
+      }
+    ]
+  },
+  {
+    "type": 1,
     "title": "Ripe Atlas Probe",
     "name": "ripe_atlas",
     "description": "The software packages that work as RIPE Atlas probes without the need for any dedicated RIPE Atlas hardware.",
@@ -73,112 +165,5 @@
       }
     ],
     "note": "When the installation is complete, Fetch the generated public key from `/var/atlas-probe/etc/probe_key.pub` and register your probe here `https://atlas.ripe.net/apply/swprobe/`"
-  },
-  {
-    "type": 1,
-    "title": "Jellyfin",
-    "name": "jellyfin",
-    "description": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps.",
-    "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/jellyfin.png",
-    "image": "linuxserver/jellyfin:latest",
-    "categories": [
-      "Video",
-      "Music",
-      "Photos"
-    ],
-    "platform": "linux",
-    "restart_policy": "unless-stopped",
-    "ports": [
-      {
-        "WebUI": "8096:8096/tcp",
-        "HTTPS WebUI": "8920:8920/tcp",
-        "DNLA": "1900:1900/udp",
-        "Discovery": "7359:7359/udp"
-      }
-    ],
-    "volumes": [
-      {
-        "container": "/config",
-        "bind": "!config/Jellyfin"
-      },
-      {
-        "container": "/data/tvshows",
-        "bind": "!tv"
-      },
-      {
-        "container": "/data/movies",
-        "bind": "!movies"
-      }
-    ],
-    "env": [
-      {
-        "name": "PUID",
-        "label": "PUID",
-        "default": "!PUID"
-      },
-      {
-        "name": "PGID",
-        "label": "PGID",
-        "default": "!PGID"
-      },
-      {
-        "name": "TZ",
-        "label": "TZ"
-      }
-    ]
-  },
-  {
-    "type": 1,
-    "title": "Jellyfin",
-    "name": "jellyfin",
-    "description": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps.",
-    "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/jellyfin.png",
-    "image": "linuxserver/jellyfin:latest",
-    "categories": [
-      "Video",
-      "Music",
-      "Photos"
-    ],
-    "platform": "linux",
-    "restart_policy": "unless-stopped",
-    "ports": [
-      {
-        "WebUI": "8096:8096/tcp",
-        "HTTPS WebUI": "8920:8920/tcp",
-        "DNLA": "1900:1900/udp",
-        "Discovery": "7359:7359/udp"
-      }
-    ],
-    "volumes": [
-      {
-        "container": "/config",
-        "bind": "!config/Jellyfin"
-      },
-      {
-        "container": "/data/tvshows",
-        "bind": "!tv"
-      },
-      {
-        "container": "/data/movies",
-        "bind": "!movies"
-      }
-    ],
-    "env": [
-      {
-        "name": "PUID",
-        "label": "PUID",
-        "default": "!PUID"
-      },
-      {
-        "name": "PGID",
-        "label": "PGID",
-        "default": "!PGID"
-      },
-      {
-        "name": "TZ",
-        "label": "TZ"
-      }
-    ]
   }
-
 ]
